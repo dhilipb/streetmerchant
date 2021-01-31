@@ -1,20 +1,21 @@
-import {Link, Store} from '../store/model';
-import {adjustPhilipsHueLights} from './philips-hue';
-import {playSound} from './sound';
-import {sendDesktopNotification} from './desktop';
-import {sendDiscordMessage} from './discord';
-import {sendEmail} from './email';
-import {sendMqttMessage} from './mqtt';
-import {sendPagerDutyNotification} from './pagerduty';
-import {sendPushbulletNotification} from './pushbullet';
-import {sendPushoverNotification} from './pushover';
-import {sendSlackMessage} from './slack';
-import {sendSms} from './sms';
-import {sendTelegramMessage} from './telegram';
-import {sendTweet} from './twitter';
-import {sendTwilioMessage} from './twilio';
-import {sendTwitchMessage} from './twitch';
-import {updateRedis} from './redis';
+import { Link, Store } from '../store/model';
+import { adjustPhilipsHueLights } from './philips-hue';
+import { playSound } from './sound';
+import { sendDesktopNotification } from './desktop';
+import { sendDiscordMessage } from './discord';
+import { sendEmail } from './email';
+import { sendMqttMessage } from './mqtt';
+import { sendPagerDutyNotification } from './pagerduty';
+import { sendPushbulletNotification } from './pushbullet';
+import { sendPushoverNotification } from './pushover';
+import { sendSlackMessage } from './slack';
+import { sendSms } from './sms';
+import { sendTelegramMessage } from './telegram';
+import { sendTweet } from './twitter';
+import { sendTwilioMessage } from './twilio';
+import { sendTwitchMessage } from './twitch';
+import { updateRedis } from './redis';
+import { callWebHook } from './webhook';
 
 export function sendNotification(link: Link, store: Store) {
   // Priority
@@ -35,4 +36,5 @@ export function sendNotification(link: Link, store: Store) {
   sendTwilioMessage(link, store);
   sendTwitchMessage(link, store);
   updateRedis(link, store);
+  callWebHook(link, store);
 }

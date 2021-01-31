@@ -327,6 +327,11 @@ const notifications = {
     consumerSecret: envOrString(process.env.TWITTER_CONSUMER_SECRET),
     tweetTags: envOrString(process.env.TWITTER_TWEET_TAGS),
   },
+  webhook: {
+    url: envOrString(process.env.WEBHOOK_URL1),
+    url2: envOrString(process.env.WEBHOOK_URL2),
+    url3: envOrString(process.env.WEBHOOK_URL3)
+  }
 };
 
 const nvidia = {
